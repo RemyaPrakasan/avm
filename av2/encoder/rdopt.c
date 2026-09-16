@@ -5098,9 +5098,7 @@ static void evaluate_inter_predictor(AV2_COMP *const cpi,
     }
   }
   rd_stats->rate += compmode_interinter_cost;
-  if ((skip_build_pred != INTERP_SKIP_LUMA_SKIP_CHROMA &&
-       (mbmi->mode != WARPMV)) ||
-      is_comp_pred) {
+  if (skip_build_pred != INTERP_SKIP_LUMA_SKIP_CHROMA && mbmi->mode != WARPMV) {
     // Chroma plane of COMPOUND_DIFFWTD mode shares the segment mask of luma
     // which is stored in xd->seg_mask. Hence, the predictor is populated for
     // all planes. This should avoid usage of incorrect segment mask when the
